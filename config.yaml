@@ -1,0 +1,16 @@
+executables:
+    basedirectory: '/home/my_project/'
+    commands:
+        doctrine_schema_update: './bin/console doctrine:schema:update --dump-sql'
+        cache_clear: './bin/console cache:clear'
+rabbitmq:
+    connection:
+        host: 'localhost'
+        username: 'test'
+        password: 'test'
+        vhost: 'test'
+        port: 5672
+    consumers:
+        first_queue_name: doctrine_schema_update
+        second_queue_name: cache_clear
+    
